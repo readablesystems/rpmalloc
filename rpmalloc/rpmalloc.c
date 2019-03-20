@@ -708,7 +708,8 @@ _memory_span_list_doublelink_remove(span_t** head, span_t* span) {
 		span_t* prev_span = span->prev_span;
 		if (next_span)
 			next_span->prev_span = prev_span;
-		prev_span->next_span = next_span;
+		if (prev_span)
+			prev_span->next_span = next_span;
 	}
 }
 
